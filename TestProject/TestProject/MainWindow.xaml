@@ -1,0 +1,27 @@
+﻿<Window x:Class="TestProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestProject"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <!--<DataGrid x:Name="DGDetails" HorizontalAlignment="Left" Height="401" Margin="10,10,0,0" VerticalAlignment="Top" Width="773"/>-->
+        <DataGrid  x:Name="DGDetails" AutoGenerateColumns="False" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Device Name" Binding="{Binding Path=DeviceName,Mode=OneWay}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Test Id" Binding="{Binding Path=TestId,Mode=OneWay}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Cutomer Name" Binding="{Binding Path=CustomerName,Mode=OneWay}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Company Name" Binding="{Binding Path=CompanyName,Mode=OneWay}" IsReadOnly="True"/>
+                <DataGridTemplateColumn Header="Pdf Link">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="btnDownload" Content="Download" Click="BtnDownload_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
